@@ -1,0 +1,53 @@
+{% from "_includes/forms" import autosuggestField, lightswitchField, textField%}
+
+{{ autosuggestField({
+label: 'API Username'|t('commerce'),
+instructions: "Your PayTrace API username."|t('commerce'),
+id: 'user',
+class: 'ltr',
+name: 'user',
+suggestEnvVars: true,
+value: gateway.user,
+errors: gateway.getErrors('user')
+}) }}
+
+{{ textField({
+label: "API Password"|t('commerce'),
+instructions: "Your PayTrace API password."|t('commerce'),
+id: 'password',
+class: 'ltr',
+name: 'password',
+type: 'password',
+suggestEnvVars: true,
+value: gateway.password,
+errors: gateway.getErrors('password')
+}) }}
+
+{{ lightswitchField({
+label: "Visa"|t('commerce'),
+name: 'supportsVisa',
+on: gateway.supportsVisa,
+errors: gateway.getErrors('supportsVisa'),
+}) }}
+
+{{ lightswitchField({
+label: "Mastercard"|t('commerce'),
+name: 'supportsMastercard',
+on: gateway.supportsMastercard,
+errors: gateway.getErrors('supportsMastercard'),
+}) }}
+
+{{ lightswitchField({
+label: "American Express"|t('commerce'),
+name: 'supportsAmericanExpress',
+on: gateway.supportsAmericanExpress,
+errors: gateway.getErrors('supportsAmericanExpress'),
+}) }}
+
+{{ lightswitchField({
+label: "Discovery"|t('commerce'),
+name: 'supportsDiscovery',
+on: gateway.supportsDiscovery,
+errors: gateway.getErrors('supportsDiscovery'),
+}) }}
+

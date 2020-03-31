@@ -1,0 +1,35 @@
+{% from "_includes/forms" import autosuggestField, lightswitchField  %}
+
+{{ autosuggestField({
+label: 'API Username'|t('commerce'),
+instructions: "Your PayTrace API username."|t('commerce'),
+id: 'user',
+class: 'ltr',
+name: 'user',
+suggestEnvVars: true,
+value: gateway.user,
+errors: gateway.getErrors('user')
+}) }}
+
+{{ autosuggestField({
+label: "API Password"|t('commerce'),
+instructions: "Your PayTrace API password."|t('commerce'),
+id: 'password',
+class: 'ltr',
+name: 'password',
+suggestEnvVars: true,
+value: gateway.password,
+errors: gateway.getErrors('password')
+}) }}
+
+{{ autosuggestField({
+label: "Integrator ID"|t('commerce'),
+instructions: "Your PayTrace Integrator ID."|t('commerce'),
+id: 'integratorId',
+class: 'ltr',
+name: 'integratorId',
+suggestEnvVars: true,
+value: gateway.integratorId,
+errors: gateway.getErrors('integratorId')
+}) }}
+

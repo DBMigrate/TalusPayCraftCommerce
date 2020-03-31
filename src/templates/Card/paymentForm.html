@@ -1,0 +1,114 @@
+{% import "_includes/forms" as forms %}
+<div style="" >
+<fieldset class="card-holder">
+    <legend>{{ 'Card Holder'|t('commerce') }}</legend>
+
+    <div class="grid" data-cols="2">
+        <style>
+            input.card-cvc {
+                border: 1px solid #ddd;
+                padding: 8px 12px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                border-radius: 4px;
+            }
+        </style>
+        <!-- Card Holder Name -->
+        <div class="item" data-colspan="1">
+            {{ forms.text({
+            name: 'firstName',
+            maxlength: 70,
+            placeholder: "First Name"|t('commerce'),
+            autocomplete: false,
+            class: 'card-holder-first-name'~(paymentForm.getErrors('firstName') ? ' error'),
+            value: paymentForm.firstName,
+            required: true,
+            }) }}
+        </div>
+
+        <div class="item" data-colspan="1">
+            {{ forms.text({
+            name: 'lastName',
+            maxlength: 70,
+            placeholder: "Last Name"|t('commerce'),
+            autocomplete: false,
+            class: 'card-holder-last-name'~(paymentForm.getErrors('lastName') ? ' error'),
+            value: paymentForm.lastName,
+            required: true,
+            }) }}
+        </div>
+    </div>
+
+    {% set errors = [] %}
+    {% for attributeKey in ['firstName', 'lastName'] %}
+    {% set errors = errors|merge(paymentForm.getErrors(attributeKey)) %}
+    {% endfor %}
+
+    {{ forms.errorList(errors) }}
+</fieldset>
+
+<!-- Card Number -->
+<fieldset class="card-data">
+    <legend style="width:100%;" about=""
+    >{{ 'Card'|t('commerce') }}
+
+        {% if supportsDiscovery or supportsAmex or supportsMastercard or supportsVisa %}
+            {% if supportsDiscovery %}
+            <img src="{{ discovery_icon }}" style="height: 2em; float: right; margin-left: 3px; margin-right: 3px"/>
+            {% endif %}
+            {% if supportsAmex %}
+                <img src="{{ amex_icon }}" style="height: 2em; float: right; margin-left: 3px; margin-right: 3px"/>
+            {% endif %}
+            {% if supportsMastercard %}
+                <img src="{{ mastercard_icon }}" style="height: 2em; float: right; margin-left: 3px; margin-right: 3px"/>
+            {% endif %}
+            {% if supportsVisa %}
+                <img src="{{ visa_icon }}" style="height: 2em; float: right; margin-left: 3px; margin-right: 3px"/>
+            {% endif %}
+            <p style="float: right; color: #9d9d9d; font-weight: 400; padding-right: 1em">We accept</p>
+        {% endif %}
+    </legend>
+
+    <div class="multitext">
+        <div class="multitextrow">
+
+            {{ forms.text({
+            name: 'number',
+            maxlength: 19,
+            placeholder: "Card Number"|t('commerce'),
+            autocomplete: false,
+            class: 'card-number'~(paymentForm.getErrors('number') ? ' error'),
+            value: paymentForm.number
+            }) }}
+
+        </div>
+
+        <div class="multitextrow">
+            {{ forms.text({
+            class: 'card-expiry'~(paymentForm.getErrors('month') or paymentForm.getErrors('year') ? ' error'),
+            type: 'text',
+            name: 'expiry',
+            placeholder: "MM"|t('commerce')~' / '~"YYYY"|t('commerce'),
+            value: paymentForm.expiry
+            }) }}
+
+            {{ forms.text({
+            type: 'tel',
+            style: 'border: 1px solid #ddd; padding: 8px 12px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;',
+            name: 'cvv',
+            placeholder: "CVV"|t('commerce'),
+            class: 'card-cvc'~(paymentForm.getErrors('cvv') ? ' error'),
+            value: paymentForm.cvv
+            }) }}
+        </div>
+    </div>
+
+    {% set errors = [] %}
+    {% for attributeKey in ['number', 'month', 'year', 'cvv'] %}
+    {% set errors = errors|merge(paymentForm.getErrors(attributeKey)) %}
+    {% endfor %}
+
+    {{ forms.errorList(errors) }}
+
+</fieldset>
+</div>
