@@ -16,8 +16,8 @@
     "license": "proprietary",
     "authors": [
         {
-            "name": "leszczuu",
-            "homepage": "http://github.com/leszczuu"
+            "name": "DBMigrate",
+            "homepage": "http://github.com/dbmigrate"
         }
     ],
     "require": {
