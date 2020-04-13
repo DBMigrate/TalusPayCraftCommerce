@@ -16,9 +16,10 @@ use commercepaytrace\widgets\CommercepaytraceWidget;
 use craft\commerce\services\Gateways;
 use craft\events\RegisterUrlRulesEvent;
 use craft\web\UrlManager;
-use leszczuucommercepaytrace\commercepaytrace\controllers\PublickeyController;
+use leszczuucommercepaytrace\commercepaytrace\controllers\DefaultController;
 use leszczuucommercepaytrace\commercepaytrace\gateways\GatewayCard;
 use leszczuucommercepaytrace\commercepaytrace\gateways\GatewayCheck;
+use leszczuucommercepaytrace\commercepaytrace\gateways\GatewaySubscription;
 use leszczuucommercepaytrace\commercepaytrace\services\CommercepaytraceService as CommercepaytraceServiceService;
 use leszczuucommercepaytrace\commercepaytrace\models\Settings;
 use leszczuucommercepaytrace\commercepaytrace\fields\CommercepaytraceField as CommercepaytraceFieldField;
@@ -67,7 +68,7 @@ class Commercepaytrace extends Plugin
 
     /** @var array */
     public $controllerMap = [
-        'publickey' => PublickeyController::class,
+        'publickey' => DefaultController::class,
     ];
 
 
@@ -83,10 +84,16 @@ class Commercepaytrace extends Plugin
         self::$plugin = $this;
 
 
+        Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES, function(RegisterUrlRulesEvent $event) {
+            $event->rules['gateway/publickey/(?P<handle>\w+)'] = 'publickey/publickey';
+        });
+
+
 
         Event::on(Gateways::class, Gateways::EVENT_REGISTER_GATEWAY_TYPES,  function(RegisterComponentTypesEvent $event) {
             $event->types[] = GatewayCard::class;
             $event->types[] = GatewayCheck::class;
+//            $event->types[] = GatewaySubscription::class;
         });
 
         Craft::info(
@@ -98,12 +105,5 @@ class Commercepaytrace extends Plugin
             __METHOD__
         );
     }
-//
-//    public function registerSiteRoutes()
-//    {
-//        return array(
-//            'saveIngredient' => array('action' => 'cocktailRecipes/ingredients/saveIngredient'),
-//        );
-//    }
 
 }

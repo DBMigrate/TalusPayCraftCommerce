@@ -1,4 +1,4 @@
-{% from "_includes/forms" import autosuggestField, lightswitchField, textField%}
+{% from "_includes/forms" import autosuggestField, lightswitchField, textField, textareaField%}
 
 {{ autosuggestField({
 label: 'API Username'|t('commerce'),
@@ -21,6 +21,18 @@ type: 'password',
 suggestEnvVars: true,
 value: gateway.password,
 errors: gateway.getErrors('password')
+}) }}
+
+{{ textareaField({
+label: "PEM file"|t('commerce'),
+instructions: "Your PayTrace PEM file for encryption."|t('commerce'),
+id: 'publickey',
+class: 'ltr',
+name: 'publickey',
+type: 'password',
+suggestEnvVars: true,
+value: gateway.publickey,
+errors: gateway.getErrors('publickey')
 }) }}
 
 {{ lightswitchField({

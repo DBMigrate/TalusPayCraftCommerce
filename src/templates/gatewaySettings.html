@@ -1,4 +1,4 @@
-{% from "_includes/forms" import autosuggestField, lightswitchField  %}
+{% from "_includes/forms" import autosuggestField, lightswitchField, textField  %}
 
 {{ autosuggestField({
 label: 'API Username'|t('commerce'),
@@ -11,12 +11,14 @@ value: gateway.user,
 errors: gateway.getErrors('user')
 }) }}
 
-{{ autosuggestField({
+
+{{ textField({
 label: "API Password"|t('commerce'),
 instructions: "Your PayTrace API password."|t('commerce'),
 id: 'password',
 class: 'ltr',
 name: 'password',
+type: 'password',
 suggestEnvVars: true,
 value: gateway.password,
 errors: gateway.getErrors('password')

@@ -47,7 +47,7 @@ class GatewayCheck extends Gateway
 
     public function getSettingsHtml()
     {
-        return Craft::$app->getView()->renderTemplate('commerce-paytrace/gatewaySettings', ['gateway' => $this]);
+        return Craft::$app->getView()->renderTemplate('commerce-paytrace/Check/gatewaySettings', ['gateway' => $this]);
     }
 
     public static function displayName(): string

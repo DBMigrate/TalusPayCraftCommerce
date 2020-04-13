@@ -26,7 +26,7 @@
         "php-http/guzzle6-adapter": "*",
         "craftcms/commerce": "^3.0",
         "craftcms/commerce-omnipay": "^2.0",
-        "softcommerce/omnipay-paytrace": "*"
+        "leszczuu/omnipay-paytrace": "dev-master"
     },
     "autoload": {
         "psr-4": {

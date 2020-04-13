@@ -73,12 +73,12 @@
         <div class="multitextrow">
 
             {{ forms.text({
-            name: 'number',
+            name: 'encryptedNumber',
             maxlength: 19,
             placeholder: "Card Number"|t('commerce'),
             autocomplete: false,
-            class: 'card-number'~(paymentForm.getErrors('number') ? ' error'),
-            value: paymentForm.number
+            class: 'card-number pt-encrypt'~(paymentForm.getErrors('number') ? ' error'),
+            value: paymentForm.encryptedNumber
             }) }}
 
         </div>
@@ -97,7 +97,7 @@
             style: 'border: 1px solid #ddd; padding: 8px 12px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;',
             name: 'cvv',
             placeholder: "CVV"|t('commerce'),
-            class: 'card-cvc'~(paymentForm.getErrors('cvv') ? ' error'),
+            class: 'card-cvc pt-encrypt '~(paymentForm.getErrors('cvv') ? ' error'),
             value: paymentForm.cvv
             }) }}
         </div>
@@ -112,3 +112,9 @@
 
 </fieldset>
 </div>
+<script>
+    $(document).ready(function() {
+        paytrace.hookFormSubmit('#paymentForm');
+        paytrace.setKeyAjax('{{ publickey_url|raw }}');
+    });
+</script>
