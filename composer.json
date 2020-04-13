@@ -2,7 +2,7 @@
     "name": "leszczuu/commerce-paytrace",
     "description": "Talus Pay plugin for craft commerce",
     "type": "craft-plugin",
-    "version": "0.1.1",
+    "version": "v0.1.1",
     "keywords": [
         "craft",
         "cms",
