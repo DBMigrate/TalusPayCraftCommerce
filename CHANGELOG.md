@@ -1,4 +1,4 @@
-# commerce-paytrace Changelog
+# commerce-taluspay Changelog
 
 All notable changes to this project will be documented in this file.
 
