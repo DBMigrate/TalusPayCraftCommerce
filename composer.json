@@ -1,5 +1,5 @@
 {
-    "name": "leszczuu/commerce-paytrace",
+    "name": "dbmigrate/commerce-taluspay",
     "description": "Talus Pay plugin for craft commerce",
     "type": "craft-plugin",
     "version": "v0.1.0.11",
@@ -8,10 +8,10 @@
         "cms",
         "craftcms",
         "craft-plugin",
-        "commerce-paytrace"
+        "commerce-taluspay"
     ],
     "support": {
-        "issues": "https://github.com/leszczuu/commerce-paytrace/issues"
+        "issues": "https://github.com/DBMigrate/TalusPayCraftCommerce/issues"
     },
     "license": "MIT",
     "authors": [
@@ -26,30 +26,30 @@
         "php-http/guzzle6-adapter": "*",
         "craftcms/commerce": "^3.0",
         "craftcms/commerce-omnipay": "^2.0",
-        "leszczuu/omnipay-paytrace": "dev-master"
+        "leszczuu/omnipay-taluspay": "dev-master"
     },
     "autoload": {
         "psr-4": {
-          "leszczuucommercepaytrace\\commercepaytrace\\": "src/"
+          "DBMigrate\\commercetaluspay\\": "src/"
         }
     },
     "extra": {
         "name": "Talus Pay for Craft Commerce",
-        "handle": "commerce-paytrace",
+        "handle": "commerce-taluspay",
         "hasCpSettings": false,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/leszczuu/commerce-paytrace/commerce-paytrace/master/CHANGELOG.md",
+        "basePath": "",
+        "changelogUrl": "https://raw.githubusercontent.com/DBMigrate/TalusPayCraftCommerce/master/CHANGELOG.md",
         "components": {
-            "commercepaytraceService": "leszczuucommercepaytrace\\commercepaytrace\\services\\CommercepaytraceService"
         },
-        "class": "leszczuucommercepaytrace\\commercepaytrace\\Commercepaytrace"
+        "class": "DBMigrate\\commercetaluspay\\CommerceTaluspay"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/leszczuu/omnipay-paytrace/"
+            "url": "https://github.com/leszczuu/omnipay-taluspay/"
         }
     ]
 }

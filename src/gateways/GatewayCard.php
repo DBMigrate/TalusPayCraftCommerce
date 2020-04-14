@@ -1,16 +1,16 @@
 <?php
 
-namespace leszczuucommercepaytrace\commercepaytrace\gateways;
+namespace DBMigrate\commercetaluspay\gateways;
 
 use Craft;
 use craft\commerce\models\payments\BasePaymentForm;
 use craft\commerce\omnipay\base\CreditCardGateway;
 use craft\helpers\UrlHelper;
 use craft\web\View;
-use leszczuucommercepaytrace\commercepaytrace\models\CardPaymentForm;
-use leszczuucommercepaytrace\commercepaytrace\models\CheckPaymentForm;
+use DBMigrate\commercetaluspay\models\CardPaymentForm;
+use DBMigrate\commercetaluspay\models\CheckPaymentForm;
 use Omnipay\Common\AbstractGateway;
-use Omnipay\Paytrace\CreditCardGateway as CreditCartGatewayOmnipay;
+use Omnipay\Taluspay\CreditCardGateway as CreditCartGatewayOmnipay;
 
 class GatewayCard extends CreditCardGateway
 {

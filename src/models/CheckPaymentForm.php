@@ -1,6 +1,6 @@
 <?php
 
-namespace leszczuucommercepaytrace\commercepaytrace\models;
+namespace DBMigrate\commercetaluspay\models;
 
 use craft\commerce\models\payments\BasePaymentForm;
 

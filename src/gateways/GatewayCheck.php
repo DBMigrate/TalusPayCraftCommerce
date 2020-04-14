@@ -1,15 +1,15 @@
 <?php
 
-namespace leszczuucommercepaytrace\commercepaytrace\gateways;
+namespace DBMigrate\commercetaluspay\gateways;
 
 use Craft;
 use craft\commerce\models\payments\BasePaymentForm;
 use craft\commerce\omnipay\base\Gateway;
 use craft\commerce\omnipay\base\OffsiteGateway;
 use craft\web\View;
-use leszczuucommercepaytrace\commercepaytrace\models\CheckPaymentForm;
+use DBMigrate\commercetaluspay\models\CheckPaymentForm;
 use Omnipay\Common\AbstractGateway;
-use Omnipay\Paytrace\CheckGateway;
+use Omnipay\Taluspay\CheckGateway;
 
 class GatewayCheck extends Gateway
 {

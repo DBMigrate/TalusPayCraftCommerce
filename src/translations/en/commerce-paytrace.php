@@ -1,18 +1,18 @@
 <?php
 /**
- * commerce-paytrace plugin for Craft CMS 3.x
+ * commerce-taluspay plugin for Craft CMS 3.x
  *
- * paytrace plugin for craft commerce
+ * TalusPay plugin for craft commerce
  *
- * @link      github.com/leszczuu
- * @copyright Copyright (c) 2020 leszczuu
+ * @link      github.com/DBMigrate
+ * @copyright Copyright (c) 2020 DBMigrate
  */
 
 /**
- * @author    leszczuu
- * @package   Commercepaytrace
+ * @author    DBMigrate
+ * @package   CommerceTaluspay
  * @since     0.1
  */
 return [
-    'commerce-paytrace plugin loaded' => 'commerce-paytrace plugin loaded',
+    'commerce-taluspay plugin loaded' => 'commerce-taluspay plugin loaded',
 ];

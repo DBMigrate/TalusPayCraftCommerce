@@ -1,6 +1,6 @@
 <?php
 
-namespace leszczuucommercepaytrace\commercepaytrace\gateways;
+namespace DBMigrate\commercetaluspay\gateways;
 
 use Craft;
 use craft\commerce\base\RequestResponseInterface;
@@ -25,9 +25,9 @@ use craft\elements\User;
 use craft\helpers\UrlHelper;
 use craft\web\Response as WebResponse;
 use craft\web\View;
-use leszczuucommercepaytrace\commercepaytrace\models\Plan;
+use DBMigrate\commercetaluspay\models\Plan;
 use Omnipay\Common\AbstractGateway;
-use Omnipay\Paytrace\CreditCardGateway as CreditCartGatewayOmnipay;
+use Omnipay\Taluspay\CreditCardGateway as CreditCartGatewayOmnipay;
 use Throwable;
 
 class GatewaySubscription extends \craft\commerce\base\SubscriptionGateway

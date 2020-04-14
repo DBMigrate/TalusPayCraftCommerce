@@ -1,10 +1,10 @@
 <?php
 
-namespace leszczuucommercepaytrace\commercepaytrace\controllers;
+namespace DBMigrate\commercetaluspay\controllers;
 
 use craft\commerce\records\Gateway;
 use craft\web\Controller;
-use leszczuucommercepaytrace\commercepaytrace\gateways\GatewayCard;
+use DBMigrate\commercetaluspay\gateways\GatewayCard;
 
 class DefaultController extends Controller
 {
