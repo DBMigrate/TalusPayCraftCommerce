@@ -2,7 +2,7 @@
     "name": "db-migrate/commerce-taluspay",
     "description": "Talus Pay plugin for craft commerce",
     "type": "craft-plugin",
-    "version": "v0.1.0.12",
+    "version": "v1.0.12",
     "keywords": [
         "craft",
         "cms",
